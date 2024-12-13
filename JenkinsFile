@@ -1,0 +1,45 @@
+pipeline{
+    agent any
+    environment{
+        withCredentials([usernamePassword(credentialsId: "Atlas_mongodb", usernameVariable: "ATLAS_USERNAME", passwordVariable: "ATLAS_PASSWORD")]) {
+            MONGO_URL= "mongodb+srv://$ATLAS_USERNAME:$ATLAS_PASSWORD@cluster0.vxdhx.mongodb.net/fantasy_app?retryWrites=true&w=majority&appName=Cluster0"  
+        }
+        
+    }
+    stages{
+        stage("Clone Git"){
+            steps{
+                git "<github-url>"
+            }
+        }
+        stage("Build docker images") {
+            steps {
+                script{
+                    sh "./build_images.sh"
+                }
+            }
+        }
+        stage("Push Images to DockerHub") {
+            steps {
+
+                withCredentials([usernamePassword(credentialsId: "Docker_hub", usernameVariable: "DOCKER_USERNAME", passwordVariable: "DOCKER_PASSWORD")]) {
+                    sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
+                    sh "docker tag fantasy-frontend $DOCKER_USERNAME/fantasy-frontend:latest"
+                    sh "docker push $DOCKER_USERNAME/fantasy-frontend:latest"
+                    sh "docker tag fantasy-backend $DOCKER_USERNAME/fantasy-backend:latest"
+                    sh "docker push $DOCKER_USERNAME/fantasy-backend:latest"
+                    sh "docker tag fantasy-kedro-api $DOCKER_USERNAME/fantasy-kedro-api:latest"
+                    sh "docker push $DOCKER_USERNAME/fantasy-kedro-api:latest"
+                }          
+            }
+        }
+        stage("Clean docker images") {
+            steps {
+                script{
+                    sh "docker container prune -f"
+                    sh "docker image prune -f"
+                }
+            }
+        }
+    }
+}

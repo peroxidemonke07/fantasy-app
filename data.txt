@@ -1,0 +1,33 @@
+
+ match id : 1426312
+team1: 1094    Sunrisers Hyderabad
+Name: team1, dtype: object
+team2: 1094    Kolkata Knight Riders
+Name: team2, dtype: object
+venue: 1094    MA Chidambaram Stadium, Chepauk, Chennai
+Name: venue, dtype: object
+date: 1094    2024-05-26
+Name: date, dtype: object
+players : ['Ramandeep Singh', 'H Klaasen', 'Abhishek Sharma', 'MA Starc', 'Shahbaz Ahmed', 'VG Arora', 'T Natarajan', 'Rahmanullah Gurbaz', 'SP Narine', 'RA Tripathi', 'B Kumar', 'Nithish Kumar Reddy', 'Harshit Rana', 'CV Varun', 'JD Unadkat', 'PJ Cummins', 'VR Iyer', 'Abdul Samad', 'TM Head', 'AK Markram', 'AD Russell', 'SS Iyer']
+
+ match id : 1426311
+team1: 1093    Sunrisers Hyderabad
+Name: team1, dtype: object
+team2: 1093    Rajasthan Royals
+Name: team2, dtype: object
+venue: 1093    MA Chidambaram Stadium, Chepauk, Chennai
+Name: venue, dtype: object
+date: 1093    2024-05-24
+Name: date, dtype: object
+players : ['YBK Jaiswal', 'R Powell', 'YS Chahal', 'H Klaasen', 'Abhishek Sharma', 'Dhruv Jurel', 'Avesh Khan', 'T Kohler-Cadmore', 'Shahbaz Ahmed', 'R Parag', 'T Natarajan', 'RA Tripathi', 'B Kumar', 'Nithish Kumar Reddy', 'Sandeep Sharma', 'SV Samson', 'JD Unadkat', 'TA Boult', 'PJ Cummins', 'Abdul Samad', 'TM Head', 'AK Markram', 'R Ashwin', 'SO Hetmyer']
+
+ match id : 1426310
+team1: 1092    Royal Challengers Bengaluru
+Name: team1, dtype: object
+team2: 1092    Rajasthan Royals
+Name: team2, dtype: object
+venue: 1092    Narendra Modi Stadium, Ahmedabad
+Name: venue, dtype: object
+date: 1092    2024-05-22
+Name: date, dtype: object
+players : ['YBK Jaiswal', 'V Kohli', 'Swapnil Singh', 'R Powell', 'YS Chahal', 'MK Lomror', 'KD Karthik', 'RM Patidar', 'Dhruv Jurel', 'Avesh Khan', 'T Kohler-Cadmore', 'R Parag', 'Yash Dayal', 'Mohammed Siraj', 'GJ Maxwell', 'KV Sharma', 'D Ferreira', 'Sandeep Sharma', 'SV Samson', 'TA Boult', 'C Green', 'LH Ferguson', 'R Ashwin', 'F du Plessis', 'SO Hetmyer']
