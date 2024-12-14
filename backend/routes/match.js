@@ -21,8 +21,8 @@ router.post('/:matchId', async (req, res) => {
 
   try {
     // Get the Kedro API URL from environment variables
-    const kedroApiUrl = 'http://localhost'; // Fallback to the default if the environment variable is not set
-    // const kedroApiUrl = process.env.KEDRO_API_URL || 'http://localhost:5008'; // Fallback to the default if the environment variable is not set
+    // const kedroApiUrl = 'http://localhost'; // Fallback to the default if the environment variable is not set
+    const kedroApiUrl = process.env.KEDRO_API_URL || 'http://localhost:5008'; // Fallback to the default if the environment variable is not set
     console.log(`kedro API url: ${kedroApiUrl}`);
     
     const response = await axios.post(`${kedroApiUrl}/predict`, { match });

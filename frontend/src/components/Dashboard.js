@@ -3,9 +3,9 @@ import axios from 'axios';
 import MatchCard from './MatchCard';
 
 function Dashboard() {
-  const BACKEND_URL = 'http://localhost:80';
-  // const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'; // Define the backend URL as a constant
-  // console.log("Backend URL:", BACKEND_URL); // Log the backend URL
+  // const BACKEND_URL = 'http://localhost:80';
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'; // Define the backend URL as a constant
+  console.log("Backend URL:", BACKEND_URL); // Log the backend URL
 
   const [matches, setMatches] = useState([]);
 
