@@ -64,9 +64,9 @@
         state: present
         definition: "{{ lookup('file', 'k8/kedro-api-service.yml') | from_yaml }}"
 
-    # - name: Create Ingress
-    #   kubernetes.core.k8s:
-    #     state: present
-    #     definition: "{{ lookup('file', 'k8/mern-ingress.yml') | from_yaml }}"
+    - name: Create Ingress
+      kubernetes.core.k8s:
+        state: present
+        definition: "{{ lookup('file', 'k8/mern-ingress.yml') | from_yaml }}"
 
 
