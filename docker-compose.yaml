@@ -2,14 +2,14 @@ version: '3.8'
 
 services:
   frontend:
-    image: fantasy-frontend
+    image: peroxidemonke07/fantasy-frontend:latest
     ports:
       - "3000:3000"
     depends_on:
       - backend
 
   backend:
-    image: fantasy-backend
+    image: peroxidemonke07/fantasy-backend:latest
     ports:
       - "5000:5000"
     environment:
@@ -19,6 +19,6 @@ services:
       - kedro-api
 
   kedro-api:
-    image: fantasy-kedro-api
+    image: peroxidemonke07/fantasy-kedro-api:latest
     ports:
       - "5008:5008"
