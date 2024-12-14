@@ -11,4 +11,4 @@ spec:
     - name: http
       port: 5000
       targetPort: 5000
-      # NodePort: 30001
+      NodePort: 30001
