@@ -11,4 +11,4 @@ spec:
     - name: http
       port: 5008
       targetPort: 5008
-      NodePort: 5008
+      # NodePort: 30003
