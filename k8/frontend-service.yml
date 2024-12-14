@@ -4,7 +4,7 @@ metadata:
   name: frontend-service
   namespace: mern-app
 spec:
-  type: Nodeport
+  type: NodePort
   selector:
     app: frontend
   ports:

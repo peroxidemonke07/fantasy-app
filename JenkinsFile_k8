@@ -1,0 +1,57 @@
+pipeline {
+    agent any
+    stages {
+        stage("Clone Git") {
+            steps {
+                git branch: "main",
+                url: "https://github.com/peroxidemonke07/fantasy-app"
+                
+            }
+        }
+        stage("Build docker images") {
+            steps {
+                script {
+                    sh "./build_images.sh"
+                }
+            }
+        }
+        stage("Push Images to DockerHub") {
+            steps {
+                withCredentials([usernamePassword(credentialsId: "docker_hub", usernameVariable: "DOCKER_USERNAME", passwordVariable: "DOCKER_PASSWORD")]) {
+                    script {
+                        sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
+                        sh "docker tag fantasy-frontend $DOCKER_USERNAME/fantasy-frontend:latest"
+                        sh "docker push $DOCKER_USERNAME/fantasy-frontend:latest"
+                        sh "docker tag fantasy-backend $DOCKER_USERNAME/fantasy-backend:latest"
+                        sh "docker push $DOCKER_USERNAME/fantasy-backend:latest"
+                        sh "docker tag fantasy-kedro-api $DOCKER_USERNAME/fantasy-kedro-api:latest"
+                        sh "docker push $DOCKER_USERNAME/fantasy-kedro-api:latest"
+                    }
+                }
+            }
+        }
+        stage("Clean docker images") {
+            steps {
+                script {
+                    sh "docker container prune -f"
+                    sh "docker image prune -f"
+                }
+            }
+        }
+        stage('Ansible Deployment') {
+            steps {
+                script { 
+                    sh 'ansible-playbook -i inventory-k8 playbook-k8.yml -vvv'
+                }
+            }
+        }
+    }
+    post {
+        success {
+            echo "Pipeline executed successfully!"
+        }
+        failure {
+            echo "Pipeline failed. Please check the logs."
+        }
+    }
+}
