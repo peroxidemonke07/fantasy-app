@@ -3,9 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function MatchCard({ match }) {
-  // const BACKEND_URL = 'http://localhost:80';
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'; // Define the backend URL as a constant
-  // console.log("Backend URL:", BACKEND_URL); // Log the backend URL
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL === undefined ? 'http://localhost:5000' : 'http://localhost:80';
 
   const navigate = useNavigate();
 

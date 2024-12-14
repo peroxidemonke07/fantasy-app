@@ -24,9 +24,14 @@ spec:
         - name: http
           containerPort: 5000
         env: 
-        - name: MONGO_URL
-          valueFrom:
-            secretKeyRef:
-              name: mern-backend-secret
-              key: mongo_url 
-        
+          - name: MONGO_URL
+            valueFrom:
+              secretKeyRef:
+                name: mern-backend-secret
+                key: mongo_url 
+          
+          - name: KEDRO_API_URL
+            valueFrom:
+              configMapKeyRef:
+                name: backend-configmap
+                key: KEDRO_API_URL
