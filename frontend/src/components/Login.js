@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function Login() {
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'; // Define the backend URL as a constant
+  // const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'; // Define the backend URL as a constant
+  const BACKEND_URL = 'http://localhost:80'; // Define the backend URL as a constant
   console.log("Backend URL:", BACKEND_URL); // Log the backend URL
   console.log("process.env.REACT_APP_BACKEND_URL:", process.env.REACT_APP_BACKEND_URL); // Log the backend URL
 
