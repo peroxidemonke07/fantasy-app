@@ -18,4 +18,9 @@ spec:
           image: peroxidemonke07/fantasy-frontend:latest
           ports:
             - containerPort: 3000
-
+          env:
+            - name: REACT_APP_BACKEND_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: frontend-configmap
+                  key: REACT_APP_BACKEND_URL
