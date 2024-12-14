@@ -28,6 +28,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: kedroAPI-service
+                name: kedro-api-service
                 port:
-                  number: 5000
+                  number: 5008
