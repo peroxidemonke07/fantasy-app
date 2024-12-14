@@ -13,7 +13,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${BACKEND_URL}/auth/register`, { username, password }); // Use the constant URL
+      await axios.post(`${BACKEND_URL}/api/auth/register`, { username, password }); // Use the constant URL
       navigate('/'); // Redirect to login page on successful registration
     } catch (error) {
       console.error('Registration failed:', error.response?.data || error.message);

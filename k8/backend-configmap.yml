@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-configmap
+  namespace: mern-app
+data:
+  KEDRO_API_URL: kedroAPI-service

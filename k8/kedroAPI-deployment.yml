@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kedroAPI-deployment
+  namespace: mern-app
+spec:
+  selector:
+    matchLabels:
+      app: kedroAPI
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kedroAPI
+    spec:
+      containers:
+      - name: kedroAPI
+        image: peroxidemonke07/fantasy-kedro-api:latest
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - name: http
+          containerPort: 5008
+        
+        

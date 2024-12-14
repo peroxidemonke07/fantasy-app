@@ -13,7 +13,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${BACKEND_URL}/auth/login`, { username, password }); // Use the constant URL
+      const response = await axios.post(`${BACKEND_URL}/api/auth/login`, { username, password }); // Use the constant URL
       localStorage.setItem('userId', response.data.userId); // Save user ID in local storage
       navigate('/dashboard');
     } catch (error) {

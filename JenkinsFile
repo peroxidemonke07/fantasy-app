@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-        MONGO_URL = ""
-    }
     stages {
         stage("Clone Git") {
             steps {

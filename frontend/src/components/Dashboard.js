@@ -11,7 +11,7 @@ function Dashboard() {
   useEffect(() => {
     const fetchMatches = async () => {
       try {
-        const response = await axios.get(`${BACKEND_URL}/matches`); // Use the constant URL
+        const response = await axios.get(`${BACKEND_URL}/api/matches`); // Use the constant URL
         setMatches(response.data);
       } catch (error) {
         console.error('Failed to fetch matches:', error.response.data);

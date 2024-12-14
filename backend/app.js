@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Routes
-app.use('/auth', authRoutes);
-app.use('/matches', matchRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/matches', matchRoutes);
 
 // Connect to MongoDB
 const mongoUrl = process.env.MONGO_URL || 'mongodb+srv://mayank:njr10psg@cluster0.vxdhx.mongodb.net/fantasy_app?retryWrites=true&w=majority&appName=Cluster0';

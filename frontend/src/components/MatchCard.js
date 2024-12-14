@@ -10,7 +10,7 @@ function MatchCard({ match }) {
 
   const handlePrediction = async () => {
     try {
-      const response = await axios.post(`${BACKEND_URL}/matches/${match._id}`); // Use the constant URL
+      const response = await axios.post(`${BACKEND_URL}/api/matches/${match._id}`); // Use the constant URL
       const selectedPlayers = response.data.selected_players;
 
       // Redirect to the PredictionPage with prediction data
