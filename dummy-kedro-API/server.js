@@ -2,12 +2,15 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 const port = 5008;
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
+app.use(cors());
+
 
 app.post('/predict', (req, res) => {
     try {
