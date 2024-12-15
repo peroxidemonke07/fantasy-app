@@ -11,6 +11,11 @@ const port = 5008;
 app.use(bodyParser.json());
 app.use(cors());
 
+// Function to select random elements from an array
+function getRandomPlayers(players, count) {
+    const shuffled = [...players].sort(() => 0.5 - Math.random()); // Shuffle the array
+    return shuffled.slice(0, count); // Return the first `count` elements
+}
 
 app.post('/predict', (req, res) => {
     try {
@@ -26,14 +31,18 @@ app.post('/predict', (req, res) => {
             return res.status(400).json({ error: "'players' must be a list." });
         }
 
-        // Return the first 11 players
-        const first11 = players.slice(0, 11);
-        return res.status(200).json({ selected_players: first11 });
+        if (players.length < 11) {
+            return res.status(400).json({ error: "Insufficient number of players. At least 11 players are required." });
+        }
+
+        // Select 11 random players
+        const random11 = getRandomPlayers(players, 11);
+        return res.status(200).json({ selected_players: random11 });
 
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
 });
 
-PORT = 5008
+PORT = 5008;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
