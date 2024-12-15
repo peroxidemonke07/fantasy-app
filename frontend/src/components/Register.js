@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function Register() {
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL === undefined ? 'http://localhost:5000' : process.env.REACT_APP_BACKEND_URL;
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL === undefined ? 'http://localhost:5000' : 'http://localhost:80';
   // console.log("Backend URL:", BACKEND_URL); // Log the backend URL
 
   const [username, setUsername] = useState('');
