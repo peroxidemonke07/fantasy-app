@@ -1,8 +1,7 @@
-// server.js
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const logger = require('./logger'); // Import the custom logger
 
 const app = express();
 const port = 5008;
@@ -24,6 +23,13 @@ app.post('/predict', (req, res) => {
         // Navigate to the 'match' object and get the 'players' list
         const match = data.match || {};
         const players = match.players || [];
+
+        // Log match ID at info level with timestamp
+        if (match.match_id) {
+            logger.info(`Processing match with ID: ${match.match_id}`, { match_id: match.match_id });
+        } else {
+            logger.info('No match_id provided in the request.');
+        }
         
         console.log(`players: ${JSON.stringify(players)}`);
 
@@ -44,5 +50,6 @@ app.post('/predict', (req, res) => {
     }
 });
 
-PORT = 5008;
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
+});
