@@ -11,7 +11,7 @@ function Dashboard() {
     const fetchMatches = async () => {
       try {
         const response = await axios.get(`${BACKEND_URL}/api/matches`); // Use the constant URL
-        console.log('Fetched matches from backend:', response.data); // Log the fetched matches
+        // console.log('Fetched matches from backend:', response.data); // Log the fetched matches
         setMatches(response.data);
       } catch (error) {
         console.error('Failed to fetch matches:', error.response?.data || error.message);
