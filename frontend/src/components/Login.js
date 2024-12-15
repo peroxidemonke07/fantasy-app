@@ -4,8 +4,8 @@ import axios from 'axios';
 
 function Login() {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL === undefined ? 'http://localhost:5000' : 'http://localhost:80';
-  console.log("Backend URL:", BACKEND_URL); // Log the backend URL
-  console.log("process.env.REACT_APP_BACKEND_URL:", process.env.REACT_APP_BACKEND_URL); // Log the backend URL
+  // console.log("Backend URL:", BACKEND_URL); // Log the backend URL
+  // console.log("process.env.REACT_APP_BACKEND_URL:", process.env.REACT_APP_BACKEND_URL); // Log the backend URL
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
