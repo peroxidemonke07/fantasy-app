@@ -4,4 +4,4 @@ metadata:
   name: backend-configmap
   namespace: mern-app
 data:
-  KEDRO_API_URL: kedro-api-service
+  KEDRO_API_URL: "http://kedro-api-service:5008"
