@@ -31,7 +31,7 @@ app.post('/predict', (req, res) => {
             logger.info('No match_id provided in the request.');
         }
         
-        console.log(`players: ${JSON.stringify(players)}`);
+        // console.log(`players: ${JSON.stringify(players)}`);
 
         if (!Array.isArray(players)) {
             return res.status(400).json({ error: "'players' must be a list." });
