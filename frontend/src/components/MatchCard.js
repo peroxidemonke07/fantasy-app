@@ -21,7 +21,7 @@ function MatchCard({ match }) {
 
   return (
     <div className="match-card">
-      <h3>{match.team1Name} vs {match.team2Name}</h3>
+      <h3>{match.team1} vs {match.team2}</h3>
       <p>Venue: {match.venue}</p>
       <p>Date: {new Date(match.date).toLocaleDateString()}</p>
       <button onClick={handlePrediction}>Get Prediction</button>
